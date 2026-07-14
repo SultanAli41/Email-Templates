@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="description"
+        content="The Nevon — connecting professionals with opportunities and empowering future leaders.">
+    <title>The Nevon</title>
+
+    <!-- Speed up first paint: fonts + image CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+
+    <style>
+        /* ============ DESIGN TOKENS ============ */
+        :root {
+            --bg: #010714;
+            --panel: rgba(8, 15, 36, 0.55);
+            --panel-border: rgba(129, 141, 242, 0.14);
+            --divider: #141C36;
+            --accent: #4D7EF7;
+            --accent-soft: #6D8FF0;
+            --text-bright: #FFFFFF;
+            --text-heading: #D5D9F6;
+            --text-body: #B4BAD0;
+            --text-muted: #A9AFC5;
+            --text-dim: #8A90A6;
+            --grad-btn: linear-gradient(90deg, #818DF2 0%, #E5E7FC 100%);
+            --grad-btn-text: linear-gradient(90deg, #010714 0%, #0838A0 100%);
+            --radius-card: 16px;
+        }
+
+        /* ============ RESET ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            border: 0;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body,
+        button {
+            /* Gellix-TRIAL first; Poppins is the closest free fallback */
+            font-family: 'Gellix-TRIAL', 'Gellix', 'Poppins', -apple-system, 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ CANVAS: 600 x 942 ============ */
+        .wrapper {
+            width: 600px;
+            height: 942px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        /* ============ SHARED ============ */
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .link-arrow {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #A6ADF8;
+            transition: color 0.2s ease;
+        }
+
+        .link-arrow:hover {
+            color: var(--accent);
+        }
+
+        .link-arrow .arrow {
+            color: inherit;
+            margin-left: 4px;
+            padding-top: 3.5px;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .link-arrow:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: var(--radius-card);
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 19px 12px;
+        }
+
+        .header .logo img {
+            width: 188px;
+            height: 31px;
+        }
+
+        .btn-gradient {
+            width: 85px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--grad-btn);
+            border-radius: 12px;
+            font-weight: 600;
+            /* SemiBold */
+            font-size: 10px;
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-gradient:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+
+        .btn-gradient span {
+            color: #010714;
+            /* fallback if background-clip:text unsupported */
+            background: var(--grad-btn-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ============ HERO / MAIN CONTENT: 562 x 318 ============ */
+        .hero {
+            width: 562px;
+            height: 318px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-copy {
+            position: absolute;
+            top: 96px;
+            left: 0;
+            width: 258px;
+            z-index: 2;
+        }
+
+        .hero-copy h1 {
+            font-size: 16px;
+            font-family: 'Gellix-TRIAL', ' Poppins', -apple-system, ' Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: #B9C0F9;
+        }
+
+        @supports (background-clip: text) or (-webkit-background-clip: text) {
+            .hero-copy h1 {
+                background: linear-gradient(90deg, #FFFFFF 0%, #E5E7FC 35%, #818DF2 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        .blue {
+            color: var(--accent);
+        }
+
+        .hero-copy p {
+            margin-top: 12px;
+            font-size: 9px;
+            line-height: 1.65;
+            font-family: 'Gellix-TRIAL', ' Poppins', -apple-system, ' Segoe UI', Arial, sans-serif;
+            font-weight: 400;
+            color: #F8F8F8;
+
+        }
+
+        .hero-img {
+            position: absolute;
+            top: 60%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 346px;
+            height: 341px;
+            z-index: 1;
+        }
+
+        .founder {
+            position: absolute;
+            width: 140px;
+            height: 46px;
+            bottom: 6px;
+            left: 0;
+            z-index: 2;
+            background: url('https://res.cloudinary.com/dfc6mm8qq/image/upload/v1784042363/Group_1948754971_to0xmz.png') center / cover no-repeat;
+            padding: 9px 34px 9px 16px;
+        }
+
+        .founder .label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-bright);
+        }
+
+        .founder h2 {
+            margin-top: 2px;
+            font-size: 11px;
+            font-weight: 400;
+            color: #C6CBDE;
+        }
+
+        /* ============ FEATURED PROGRAM: 562 x 205 ============ */
+        .program {
+            width: 562px;
+            height: 205px;
+            margin: 15px auto 0;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .program-img {
+            width: 279px;
+            height: 204px;
+            flex-shrink: 0;
+            background: #0A1330 url('https://res.cloudinary.com/dfc6mm8qq/image/upload/v1784044314/Pic2_1_xjpbhi.png') center / cover no-repeat;
+        }
+
+        .program-body {
+            padding: 34px 26px 0 24px;
+        }
+
+        .eyebrow {
+            font-size: 9.5px;
+            font-weight: 600;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+        }
+
+        .program-body h2 {
+            margin-top: 8px;
+            font-size: 23px;
+            font-weight: 500;
+            color: var(--text-bright);
+        }
+
+        .program-body p {
+            margin-top: 10px;
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* ============ READY TO GO / CTA: 562 x 95 ============ */
+        .cta {
+            width: 562px;
+            height: 95px;
+            margin: 15px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 26px 0 24px;
+        }
+
+        .cta-icon {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+        }
+
+        .cta-text h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-bright);
+        }
+
+        .cta-text p {
+            margin-top: 5px;
+            font-size: 10px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            max-width: 265px;
+        }
+
+        .cta .get-started {
+            margin-left: auto;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .cta .get-started:hover {
+            color: #7DA2FF;
+        }
+
+        .cta .get-started .arrow {
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .cta .get-started:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* ============ FOOTER ============ */
+        .footer-wrap {
+            margin-top: auto;
+        }
+
+        .footer {
+            border-top: 1px solid var(--divider);
+            display: flex;
+            padding: 24px 19px 22px;
+        }
+
+        .f-col {
+            padding: 0 20px;
+        }
+
+        .f-col+.f-col {
+            border-left: 1px solid var(--divider);
+        }
+
+        .f-brand {
+            width: 218px;
+            padding-left: 0;
+        }
+
+        .f-brand img {
+            width: 128px;
+            height: auto;
+        }
+
+        .f-brand p {
+            margin-top: 14px;
+            font-size: 9.5px;
+            line-height: 1.6;
+            color: #AEB4C9;
+            max-width: 175px;
+        }
+
+        .f-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 13px;
+        }
+
+        .f-contact {
+            width: 196px;
+        }
+
+        .f-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 9.5px;
+            color: var(--text-body);
+        }
+
+        .f-row a {
+            color: var(--text-body);
+            transition: color 0.2s ease;
+        }
+
+        .f-row a:hover {
+            color: var(--accent);
+        }
+
+        .f-row svg {
+            flex-shrink: 0;
+        }
+
+        .f-social {
+            flex: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            border-radius: 50%;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+            opacity: 0.85;
+        }
+
+        .social-icons img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .copyright {
+            border-top: 1px solid var(--divider);
+            padding: 13px 19px;
+            font-size: 9px;
+            color: var(--text-dim);
+        }
+
+        /* ============ MOTION PREFERENCES ============ */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 620px) {
+            .wrapper {
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+            }
+
+            .hero,
+            .program,
+            .cta {
+                width: calc(100% - 38px);
+            }
+
+            .hero {
+                height: auto;
+                padding-bottom: 190px;
+            }
+
+            .hero-copy {
+                position: static;
+                padding-top: 30px;
+                width: 70%;
+            }
+
+            .hero-img {
+                width: 62%;
+                height: auto;
+                top: auto;
+                bottom: -20px;
+                transform: none;
+            }
+
+            .founder {
+                bottom: 30px;
+            }
+
+            .program {
+                height: auto;
+                flex-direction: column;
+            }
+
+            .program-img {
+                width: 100%;
+                height: 180px;
+            }
+
+            .program-body {
+                padding: 22px 20px 24px;
+            }
+
+            .cta {
+                height: auto;
+                flex-wrap: wrap;
+                padding: 18px 20px;
+            }
+
+            .cta .get-started {
+                margin-left: 53px;
+            }
+
+            .footer {
+                flex-wrap: wrap;
+                gap: 22px;
+            }
+
+            .f-col+.f-col {
+                border-left: 0;
+                padding-left: 0;
+            }
+
+            .f-col {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- HEADER -->
+        <header class="header">
+            <a href="https://www.thenevon.com" target="_blank" rel="noopener" class="logo"
+                aria-label="The Nevon — home">
+                <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783967059/Logo_2_bxcdop.png" width="148"
+                    height="31" alt="The Nevon">
+            </a>
+            <a href="https://www.thenevon.com/contact" target="_blank" rel="noopener" class="btn-gradient">
+                <span>Get In Touch</span>
+            </a>
+        </header>
+
+        <main>
+
+            <!-- MAIN CONTENT 562x318 -->
+            <section class="hero" aria-label="Welcome">
+                <div class="hero-copy">
+                    <h1>WELCOME TO THE NEVON</h1>
+                    <p>At The Nevon, we connect professionals with opportunities, empower future leaders, and help
+                        build a better future of work.</p>
+                    <a href="https://www.thenevon.com" target="_blank" rel="noopener" class="link-arrow">Explore Now
+                        <img class="arrow"
+                            src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1784047446/Vector_ylqump.svg"
+                            width="12" height="12" alt="" aria-hidden="true"></a>
+                </div>
+
+                <img class="hero-img"
+                    src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1784042672/Pic1_bh8ver.png" width="346"
+                    height="341" alt="Futuristic city skyline">
+
+                <div class="founder">
+
+                </div>
+            </section>
+
+            <!-- FEATURED PROGRAM 562x205 -->
+            <section class="program card" aria-label="Featured program">
+                <div class="program-img" role="img" aria-label="Illuminated path up a mountain peak"></div>
+                <div class="program-body">
+                    <p class="eyebrow">Featured Program</p>
+                    <h2>Leadership Acceleration</h2>
+                    <p>A transformational program to unlock your potential through and lead with impact.</p>
+                    <a href="https://www.thenevon.com" target="_blank" rel="noopener" class="link-arrow">Learn More
+                        <span class="arrow" aria-hidden="true">&#10142;</span></a>
+                </div>
+            </section>
+
+            <!-- READY TO GO 562x95 -->
+            <section class="cta card" aria-label="Get started">
+                <img class="cta-icon"
+                    src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1784042961/Frame_1984078870_cnt8yh.svg"
+                    width="38" height="38" alt="" aria-hidden="true">
+                <div class="cta-text">
+                    <h3>Ready to take the next step?</h3>
+                    <p>Explore opportunities, programs, and resources built for your growth.</p>
+                </div>
+                <a href="https://www.thenevon.com" target="_blank" rel="noopener" class="get-started">Get Started
+                    <span class="arrow" aria-hidden="true">&#10142;</span></a>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer-wrap">
+            <div class="footer">
+
+                <div class="f-col f-brand">
+                    <a href="https://www.thenevon.com" target="_blank" rel="noopener" aria-label="The Nevon — home">
+                        <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783967059/Logo_2_bxcdop.png"
+                            width="128" height="27" loading="lazy" alt="The Nevon">
+                    </a>
+                    <p>Redefining the Landscape of Workforce with <span class="blue">The New Vision.</span></p>
+                </div>
+
+                <div class="f-col f-contact">
+                    <h4 class="f-title">Get In Touch</h4>
+                    <div class="f-row">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B4BAD0" stroke-width="1.7"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Lahore, Pakistan</span>
+                    </div>
+                    <div class="f-row">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B4BAD0" stroke-width="1.7"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-10 6L2 7" />
+                        </svg>
+                        <a href="mailto:hello@gmail.com">hello@gmail.com</a>
+                    </div>
+                    <div class="f-row">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B4BAD0" stroke-width="1.7"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        <a href="https://www.thenevon.com" target="_blank" rel="noopener">www.thenevon.com</a>
+                    </div>
+                </div>
+
+                <div class="f-col f-social">
+                    <h4 class="f-title">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/thenevon" target="_blank" rel="noopener"
+                            aria-label="The Nevon on Instagram">
+                            <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783972956/Frame_1984078911_nroaiy.svg"
+                                width="25" height="25" loading="lazy" alt="Instagram">
+                        </a>
+                        <a href="https://www.linkedin.com/company/thenevon" target="_blank" rel="noopener"
+                            aria-label="The Nevon on LinkedIn">
+                            <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783973030/Frame_1984078910_ckt0nu.svg"
+                                width="25" height="25" loading="lazy" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copyright">&copy; 2026 The Nevon. All rights reserved.</div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

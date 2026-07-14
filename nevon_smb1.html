@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nevon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #ffffff;
+            padding: 2.5rem 0;
+            margin: 0;
+        }
+
+        .content {
+            max-width: 600px;
+            background-color: #020718;
+            margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0.625rem 1.875rem rgba(2, 7, 24, 0.15);
+        }
+
+        .header {
+            background-color: #020718;
+            padding: 2.5rem 2.5rem 1.875rem 2.5rem;
+            text-align: left;
+        }
+
+        .header img {
+            width: 360px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            left: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.25;
+        }
+
+        .header h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 0.15rem;
+            margin: 0;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            padding: 0.625rem 2.5rem 0 2.5rem;
+            background-color: #020718;
+        }
+
+        .main-content h1 {
+            font-size: 1.625rem;
+            color: #ffffff;
+            margin: 0;
+            margin-bottom: 0.937rem;
+        }
+
+        .main-content p {
+            font-size: 1rem;
+            line-height: 1.6em;
+            color: #cbd5e1;
+            margin-bottom: 1.25rem;
+        }
+
+        .main-content a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 2.5rem 0;
+            background-color: #050d26;
+            border: 1px solid #132b63;
+            border-radius: 0.75rem;
+            padding: 2.18rem 1.56rem;
+        }
+
+        .cta img {
+            max-width: 9.375rem;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 1.25rem 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #cbd5e1;
+            background: linear-gradient(135deg, #e0e7ff, #a5b4fc);
+            color: #020718;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 1.1rem 3.5rem;
+            border-radius: 2.5rem;
+            border: 1px solid #c7d2fe;
+            box-shadow: 0 4px 15px rgba(165, 180, 252, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(165, 180, 252, 0.6);
+            background: linear-gradient(135deg, #eef2ff, #b4c6fc);
+        }
+
+        .contact-info {
+            padding: 1.25rem 2.5rem;
+            background-color: #020718;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 1.5em;
+            margin: 0.625rem 0;
+        }
+
+        .contact-info img {
+            width: 1.5rem;
+            margin-right: 0.625rem;
+        }
+
+        .footer {
+            padding: 1.875rem 2.5rem;
+            background-color: #020718;
+            text-align: center;
+            border-top: 1px solid #132b63;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.5em;
+            margin: 0;
+        }
+
+        .footer p b {
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 0 !important;
+            }
+
+            .content {
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .header img {
+                width: 300px !important;
+                left: 40px !important;
+            }
+
+            .header {
+                padding: 2rem 1.5rem 1.5rem 1.5rem !important;
+            }
+
+            .header h1 {
+                font-size: 1.8rem !important;
+            }
+
+            .header h2 {
+                font-size: 0.95rem !important;
+            }
+
+            .main-content {
+                padding: 0.5rem 1.5rem 0 1.5rem !important;
+            }
+
+            .main-content h1 {
+                font-size: 1.35rem !important;
+            }
+
+            .cta {
+                padding: 2rem 1rem !important;
+                margin: 2rem 0 !important;
+            }
+
+            .cta p {
+                font-size: 1rem !important;
+            }
+
+            .cta-btn {
+                padding: 0.9rem 2.5rem !important;
+                font-size: 1rem !important;
+            }
+
+            .signature-cell {
+                padding: 1.5rem !important;
+            }
+
+            .footer {
+                padding: 2rem 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center class="container">
+        <table class="content" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="header">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783967059/Logo_2_bxcdop.png"
+                            alt="The Nevon"
+                            style="width: 360px; max-width: 100%; display: inline-block; position: relative; left: 50px;">
+                    </div>
+                    <h2>Scale, Modernize & Ace</h2>
+                    <h1>Personalized Tech Solutions for Growing Real Estate</h1>
+                </td>
+            </tr>
+            <tr>
+                <td class="main-content">
+                    <h1>Hi {{first_name}},</h1>
+                    <p> Navigating within real estate, I can fairly analyze what technical challenges your company
+                        must’ve
+                        been facing. From fragmented data management to inefficient process flows, outdated legacy
+                        systems,
+                        or inadequate or expensive softwares—the roadblocks are real.</p>
+                    <p> So, why not scale your company to a much greater level with the best tech practices?</p>
+
+                    <p> Our company can certainly provide personalized software services for an established business
+                        like
+                        yours, encompassing custom development, data analytics, integrating cloud solutions, security,
+                        blockchain, AI, IoT, and much more.</p>
+                    <p>
+                        To get a taste of what we’re all about, dive into our company brochure. It’s got the details on
+                        how
+                        we work, the magic we’ve made happen, and some lovely words from folks we’ve teamed up with in
+                        the
+                        past.
+                    </p>
+                    <p>
+                        So why not spare a few minutes to talk about how we can supercharge your operations by
+                        leveraging
+                        advanced tech.
+                    </p>
+                    <div class="cta">
+                        <img src="https://i.ibb.co/Y3hdbs3/Saly-1.png" alt="rocket">
+                        <p>Click To Explore Our Company Brochure</p>
+                        <a href="https://drive.google.com/file/d/1dzo9Y9SD6t6o1XDnPox3TyQYa3of7aF5/view?usp=drive_link"
+                            target="_blank" class="cta-btn"
+                            style="display: inline-block; background: #cbd5e1; background: linear-gradient(135deg, #e0e7ff, #a5b4fc); color: #020718; font-family: 'Poppins', Arial, sans-serif; font-size: 1.15rem; font-weight: 700; text-decoration: none; padding: 1.1rem 3.5rem; border-radius: 2.5rem; border: 1px solid #c7d2fe; box-shadow: 0 4px 15px rgba(165, 180, 252, 0.4);">
+                            Get In Touch
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="signature-cell" style="padding: 1.875rem 2.5rem;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table class="wisestamp_app signoff" cellpadding="0" cellspacing="0" width="100%"
+                                        style="width: 100%; line-height: normal;">
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    style="font-family: 'Poppins', Arial, sans-serif; text-align:left; padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0px; font-size: 1.125rem; color: #cbd5e1; font-weight: 500;">
+                                                        Kind regards,</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="line-height: 1%; padding-top: 16px; font-size: 1px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0" class="ws-tpl"
+                                        style="border-collapse: collapse; line-height: 1.15;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ws-tpl-photo"
+                                                    style="vertical-align: top; padding: 0px 15px 0px 0px; width: 70px; text-align: center;">
+                                                    <img border="0"
+                                                        src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783968941/Rectangle_22125_mhkkow.png"
+                                                        alt="Sardar Muhammad Nadir"
+                                                        style="width: 70px; height: 70px; object-fit: cover; vertical-align: middle; border-radius: 8px; border: 0px; display: block;">
+                                                </td>
+                                                <td valign="top"
+                                                    style="padding: 0px 0px 0px 15px; vertical-align: top; border-left: solid 1px #132b63;">
+                                                    <table cellpadding="0" cellspacing="0"
+                                                        style="border-collapse: collapse;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding: 0px;">
+                                                                    <p
+                                                                        style="margin: 0px; line-height: 1.25em; font-family: 'Poppins', Arial, sans-serif;">
+                                                                        <span
+                                                                            class="reactive-wrapper reactive-wrapper-name">
+                                                                            <span data-acs="name" class="ws-tpl-name"
+                                                                                style="font-size: 1.125rem; font-weight: bold; color: #ffffff; letter-spacing: 0px; white-space: nowrap;">
+                                                                                <span
+                                                                                    class="reactive-value reactive-value-name"
+                                                                                    data-real-value="Sardar Muhammad Nadir">Sardar
+                                                                                    Muhammad Nadir</span>
+                                                                            </span>
+                                                                        </span>
+                                                                        <br>
+                                                                        <span
+                                                                            class="reactive-wrapper reactive-wrapper-title">
+                                                                            <span data-acs="title" class="ws-tpl-title"
+                                                                                style="font-size: 0.8125rem; font-weight: 500; color: #94a3b8; white-space: nowrap;">
+                                                                                <span
+                                                                                    class="reactive-value reactive-value-title"
+                                                                                    data-real-value="CEO & Founder">CEO
+                                                                                    & Founder</span>
+                                                                            </span>
+                                                                        </span>
+                                                                        <br>
+                                                                        <span
+                                                                            class="reactive-wrapper reactive-wrapper-company">
+                                                                            <span data-acs="company"
+                                                                                class="ws-tpl-company"
+                                                                                style="font-size: 0.8125rem; font-weight: 600; color: #38bdf8; white-space: nowrap;">
+                                                                                <span
+                                                                                    class="reactive-value reactive-value-company"
+                                                                                    data-real-value="The Nevon">The
+                                                                                    Nevon</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <table cellpadding="0" cellspacing="0"
+                                                                        style="border-collapse: collapse;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td nowrap="" width="267"
+                                                                                    style="padding-top: 12px; white-space: nowrap; width: 267px; font-family: 'Poppins', Arial, sans-serif;">
+                                                                                    <p
+                                                                                        style="margin: 0px; line-height: 1.2em; font-size: 0.75rem;">
+                                                                                        <span
+                                                                                            style="white-space: nowrap;">
+                                                                                            <span
+                                                                                                class="reactive-wrapper reactive-wrapper-phone">
+                                                                                                <a href="https://wa.me/923340217912"
+                                                                                                    target="_blank"
+                                                                                                    style="text-decoration: unset;"
+                                                                                                    rel="nofollow noreferrer">
+                                                                                                    <span
+                                                                                                        data-acs="phone"
+                                                                                                        style="color: #cbd5e1; white-space: nowrap;"
+                                                                                                        class="reactive-value reactive-value-phone"
+                                                                                                        data-real-value="+923340217912">+92
+                                                                                                        334
+                                                                                                        0217912</span>
+                                                                                                </a>
+                                                                                            </span>
+                                                                                            <span
+                                                                                                class="reactive-wrapper reactive-wrapper-website">
+                                                                                                <span
+                                                                                                    class="reactive-separator"
+                                                                                                    style="color: #132b63; padding: 0 5px;">|</span>
+                                                                                                <a href="https://www.thenevon.com"
+                                                                                                    target="_blank"
+                                                                                                    style="text-decoration: unset;"
+                                                                                                    rel="nofollow noreferrer">
+                                                                                                    <span
+                                                                                                        data-acs="website"
+                                                                                                        style="color: #38bdf8; white-space: nowrap;"
+                                                                                                        class="reactive-value reactive-value-website"
+                                                                                                        data-real-value="https://www.thenevon.com">www.thenevon.com</span>
+                                                                                                </a>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td nowrap="" width="152"
+                                                                                    style="padding-top: 6px; white-space: nowrap; width: 152px; font-family: 'Poppins', Arial, sans-serif;">
+                                                                                    <p
+                                                                                        style="margin: 0px; line-height: 1.2em; font-size: 0.75rem;">
+                                                                                        <span
+                                                                                            style="white-space: nowrap;">
+                                                                                            <span
+                                                                                                class="reactive-wrapper reactive-wrapper-email">
+                                                                                                <a href="mailto:sardar@thenevon.com"
+                                                                                                    target="_blank"
+                                                                                                    style="text-decoration: unset;"
+                                                                                                    rel="nofollow noreferrer">
+                                                                                                    <span
+                                                                                                        data-acs="email"
+                                                                                                        style="color: #38bdf8; white-space: nowrap;"
+                                                                                                        class="reactive-value reactive-value-email"
+                                                                                                        data-real-value="sardar@thenevon.com">sardar@thenevon.com</span>
+                                                                                                </a>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td nowrap="" width="207"
+                                                                                    style="padding-top: 6px; white-space: nowrap; width: 207px; font-family: 'Poppins', Arial, sans-serif;">
+                                                                                    <p
+                                                                                        style="margin: 0px; line-height: 1.2em; font-size: 0.75rem;">
+                                                                                        <span
+                                                                                            style="white-space: nowrap;">
+                                                                                            <span
+                                                                                                class="reactive-wrapper reactive-wrapper-address">
+                                                                                                <span data-acs="address"
+                                                                                                    style="color: #cbd5e1; white-space: nowrap;"
+                                                                                                    class="reactive-value reactive-value-address"
+                                                                                                    data-real-value="Lahore, Pakistan">Lahore,
+                                                                                                    Pakistan</span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 12px 0px 0px 0px;">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left"
+                                                                                    style="padding-right: 8px; text-align: center; padding-top: 0;">
+                                                                                    <p style="margin: 1px;"><a
+                                                                                            href="https://www.linkedin.com/company/thenevon/"
+                                                                                            target="_blank"
+                                                                                            rel="nofollow noreferrer"><img
+                                                                                                width="18" height="18"
+                                                                                                src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png"
+                                                                                                style="float: left; border: 1px solid #94a3b8; border-radius: 50%; padding: 5px; background-color: transparent;"
+                                                                                                border="0"
+                                                                                                alt="linkedin"></a></p>
+                                                                                </td>
+
+                                                                                <td align="left"
+                                                                                    style="padding-right: 8px; text-align: center; padding-top: 0;">
+                                                                                    <p style="margin: 1px;"><a
+                                                                                            href="https://www.instagram.com/thenevon/"
+                                                                                            target="_blank"
+                                                                                            rel="nofollow noreferrer"><img
+                                                                                                width="18" height="18"
+                                                                                                src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"
+                                                                                                style="float: left; border: 1px solid #94a3b8; border-radius: 50%; padding: 5px; background-color: transparent;"
+                                                                                                border="0"
+                                                                                                alt="instagram"></a></p>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="footer">
+                    <p>
+                        © 2026 The Nevon. All rights reserved.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
