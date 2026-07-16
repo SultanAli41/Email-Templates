@@ -85,9 +85,9 @@
         .link-arrow {
             display: inline-block;
             margin-top: 16px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
-            color: #A6ADF8;
+            color: #BCC2F7;
             transition: color 0.2s ease;
         }
 
@@ -188,7 +188,22 @@
         }
 
         .blue {
-            color: var(--accent);
+            background:
+                linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.05) 0%,
+                    #F8F8F8 20%,
+                    #C8CDF9 40%,
+                    #BCC2F7 60%,
+                    #EAEAEB 80%,
+                    #FFFFFF 100%),
+                linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.15) 0%,
+                    #598DFE 100%);
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-copy p {
@@ -257,25 +272,26 @@
         }
 
         .eyebrow {
-            font-size: 9.5px;
+            font-size: 9px;
             font-weight: 600;
+            font-family: Gellix-TRIAL;
             letter-spacing: 1.4px;
             text-transform: uppercase;
-            color: var(--accent-soft);
         }
 
         .program-body h2 {
             margin-top: 8px;
-            font-size: 23px;
+            font-size: 20px;
             font-weight: 500;
-            color: var(--text-bright);
+            color: #EAEAEB;
         }
 
         .program-body p {
             margin-top: 10px;
-            font-size: 11px;
+            font-size: 9px;
             line-height: 1.6;
-            color: var(--text-muted);
+            color: #598DFE;
+            ;
         }
 
         /* ============ READY TO GO / CTA: 562 x 95 ============ */
@@ -296,24 +312,25 @@
         }
 
         .cta-text h3 {
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--text-bright);
+            color: #FFFFFF;
         }
 
         .cta-text p {
             margin-top: 5px;
-            font-size: 10px;
+            font-size: 8px;
             line-height: 1.5;
-            color: var(--text-muted);
+            color: #F8F8F8;
+            font-family: Gellix-TRIAL;
             max-width: 265px;
         }
 
         .cta .get-started {
             margin-left: auto;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--accent);
+            font-size: 10px;
+            font-weight: bold;
+            color: #BCC2F7;
             white-space: nowrap;
             transition: color 0.2s ease;
         }
@@ -370,7 +387,7 @@
         }
 
         .f-title {
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-bright);
             margin-bottom: 13px;
@@ -385,7 +402,7 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 10px;
-            font-size: 9.5px;
+            font-size: 8px;
             color: var(--text-body);
         }
 
@@ -425,6 +442,9 @@
         .social-icons img {
             width: 25px;
             height: 25px;
+            color: linear-gradient(90deg,
+                    #C1C6F8 0%,
+                    #949EF4 100%);
         }
 
         .copyright {
@@ -564,7 +584,8 @@
                 <div class="program-body">
                     <p class="eyebrow">Featured Program</p>
                     <h2>Leadership Acceleration</h2>
-                    <p>A transformational program to unlock your potential through and lead with impact.</p>
+                    <p style="color:white;">A transformational program to unlock your potential through and lead with
+                        impact.</p>
                     <a href="https://www.thenevon.com" target="_blank" rel="noopener" class="link-arrow">Learn More
                         <span class="arrow" aria-hidden="true">&#10142;</span></a>
                 </div>
@@ -594,7 +615,8 @@
                         <img src="https://res.cloudinary.com/dfc6mm8qq/image/upload/v1783967059/Logo_2_bxcdop.png"
                             width="128" height="27" loading="lazy" alt="The Nevon">
                     </a>
-                    <p>Redefining the Landscape of Workforce with <span class="blue">The New Vision.</span></p>
+                    <p style="font-size: 8px ;">Redefining the Landscape of Workforce with <span class="blue">The New
+                            Vision.</span></p>
                 </div>
 
                 <div class="f-col f-contact">
